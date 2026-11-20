@@ -1,0 +1,14 @@
+name: AnyEnchant
+version: '${project.version}'
+main: dev.anyenchant.AnyEnchantPlugin
+api-version: '26.3'
+description: Any item, any enchant, up to a configurable level
+commands:
+  anyenchant:
+    description: AnyEnchant admin command
+    usage: /<command> enchant <enchant> <level> [player]
+    aliases: [ae]
+permissions:
+  anyenchant.admin:
+    description: Use /anyenchant admin commands
+    default: op

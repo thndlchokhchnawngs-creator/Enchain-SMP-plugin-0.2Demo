@@ -1,0 +1,40 @@
+# ภาษา / language: th หรือ en (แก้ข้อความได้ในไฟล์ messages_th.yml / messages_en.yml)
+language: th
+
+# เลเวลสูงสุดของทุก Enchant (ใช้กับคำสั่งแอดมินและ Anvil)
+max-level: 10
+
+anvil:
+  # รวม Enchant ที่ Anvil โดยไม่มีข้อจำกัดชนิดไอเทม/ข้อขัดแย้ง (Sharpness+Smite, Mending+Infinity ฯลฯ)
+  enabled: true
+  # ค่าเลเวล XP ที่ใช้ต่อครั้ง (ขั้นต่ำ 1 เพราะเกมไม่ให้หยิบผลลัพธ์ถ้าเป็น 0)
+  cost: 5
+
+# ความสามารถพิเศษเมื่อ Enchant อยู่บนไอเทมที่ไม่ใช่ของตัวเอง (ไอเทมของตัวเองทำงานแบบ vanilla)
+# ทุกค่าสเกลตามเลเวลของ Enchant บนไอเทม
+abilities:
+  # Shift + คลิกขวา ด้วยอาวุธ/เครื่องมือ/ไอเทมอื่น (ไม่ใช่เกราะ) = ระเบิดรอบตัว ไม่ทำลายบล็อก ผู้ใช้ไม่เจ็บ
+  blast-protection:
+    enabled: true
+    cooldown-base-seconds: 10.0        # คูลดาวน์ = base - (เลเวล x reduction) ขั้นต่ำ 1 วินาที
+    cooldown-reduction-per-level: 0.5
+    power-base: 1.5                    # พลังระเบิด = base + (เลเวล x per-level) (TNT = 4.0)
+    power-per-level: 0.25
+  channeling:
+    enabled: true
+    # อาวุธ/ไอเทมอื่นตีโดน: โอกาสฟ้าผ่า = เลเวล x chance-per-level (เลเวล 10 = 100%)
+    chance-per-level: 0.10
+    hit-cooldown-ms: 500
+    # เครื่องมือ (ขุด/พลั่ว/จอบ/กรรไกร) Shift + คลิกขวา = ฟ้าผ่าจุดที่เล็ง
+    tool:
+      range: 30.0
+      cooldown-base-seconds: 8.0
+      cooldown-reduction-per-level: 0.5
+    # เกราะ: เมื่อถูกตี โอกาสฟ้าผ่าผู้โจมตี = เลเวลสูงสุดของเกราะที่ใส่ x chance-per-level
+    armor:
+      chance-per-level: 0.05
+      cooldown-ms: 3000
+  efficiency:
+    enabled: true
+    # อาวุธ (ดาบ/ขวาน/ฯลฯ) ถือในมือ: ความเร็วตี +เลเวล x ค่านี้ (0.15 x 10 = +150%)
+    attack-speed-per-level: 0.15
